@@ -14,7 +14,7 @@ SISTEMA DE CONTROL DE INVENTARIO
 <a href="productos?opcion=listar" class="btn btn-default btn-sm" role="button">Productos</a>
 <a href="Usuario?opcion=listar" class="btn btn-default btn-sm" role="button">Usuarios</a>
 <a href="index2" class="btn btn-default btn-sm" role="button">Creadores</a>
-<a href="index" class="btn btn-default btn-sm" role="button">Cerrar Session</a>
+<a href="Controlador?accion=Salir" class="btn btn-default btn-sm" role="button">Cerrar Session</a>
 
       </div>  
         

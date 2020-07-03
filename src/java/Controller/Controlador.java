@@ -46,6 +46,13 @@ public class Controlador extends HttpServlet {
                     }else{
                         request.getRequestDispatcher("index.jsp").forward(request, response);
                     }
+            }else if(accion.equalsIgnoreCase("Salir")){
+                // Guardo obtengo la session que cree
+                HttpSession sessionActiva = request.getSession();
+                // Mato la session
+                sessionActiva.invalidate();
+                // Llamo a la vista index
+                response.sendRedirect("index.jsp");
             }else{
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
