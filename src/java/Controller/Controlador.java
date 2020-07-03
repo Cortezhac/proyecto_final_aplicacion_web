@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Controlador extends HttpServlet {
     UsuarioDAO dao = new UsuarioDAOImplementar();
@@ -34,8 +35,13 @@ public class Controlador extends HttpServlet {
                     }
                     
                     if(dao.validar(p) == 1){
-                        request.getSession().setAttribute("nombre",nom);
-                        request.getSession().setAttribute("Correo",Correo);
+                        // Variable que contendra la session 
+                        HttpSession Logeado = request.getSession(true);
+                        // Asigno los valores a la session 
+                        Logeado.setAttribute("datosUsuario", p); // objeto de tipo persona con los valores
+                                                                 // nombre y correo asignados
+                        // Revisar vista principal el codigo de ahi lo penga en donde quiere que
+                        // que se compruebe que hay una session activa
                         request.getRequestDispatcher("Principal.jsp").forward(request, response);
                     }else{
                         request.getRequestDispatcher("index.jsp").forward(request, response);

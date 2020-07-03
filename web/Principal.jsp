@@ -4,7 +4,24 @@
     Author     : DELL 1
 --%>
 
+<%@page import="Model.Usuarios"%><!--Modelo usuario para guardar los datos que se utilizaron en Controller.java-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!-- Me permite usar las sessiones deben pegar esto donde necesiten comprobar session-->
+<%@page session="true"%>
+
+<%
+    // Obtengo la session que cree en el Controlador.java
+    HttpSession sessionActiva = request.getSession();
+    // Verifico que la variable tiene valores para evitar el nullPointerException
+    if(sessionActiva.getAttribute("datosUsuario")!= null){
+       // Guardo los valores de la session en un objeto Usuario 
+       Usuarios usuarioLogeado = (Usuarios) sessionActiva.getAttribute("datosUsuario");
+    }else{
+        // Session nulla reenvio a index.jsp para que inicie session
+        response.sendRedirect("index.jsp");
+    }
+
+%>
 <!DOCTYPE html>
 <html>
     <head>
