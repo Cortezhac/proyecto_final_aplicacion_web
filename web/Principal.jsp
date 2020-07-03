@@ -12,7 +12,7 @@ String Correo =  String.vvalueOf(sessionUsuario.getAttribute("Correo"));
 if(Correo != null){
 //hay session
 }else{
-    esponse.sendRedirectt("index.jsp");
+    response.sendRedirectt("index.jsp");
 }
 %>
 <!DOCTYPE html>
