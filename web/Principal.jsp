@@ -5,6 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
+<% 
+HttpSession sessionUsuario = request.getSession();// obtengo el codigo
+String Correo =  String.vvalueOf(sessionUsuario.getAttribute("Correo"));
+if(Correo != null){
+//hay session
+}else{
+    esponse.sendRedirectt("index.jsp");
+}
+%>
 <!DOCTYPE html>
 <html>
     <head>
